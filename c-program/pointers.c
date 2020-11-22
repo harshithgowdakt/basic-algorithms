@@ -1,14 +1,15 @@
 #include <stdio.h>
 int main()
 {
-  int a = 5;
+  int a = 5, b = 20;
   int *ptr = &a;
-  int b= 20;
-  *ptr = 10;
-  ptr = &b;
-  printf("var: %d\n", a);
   printf("data at the ptr %d \n", *ptr);
-  printf("pointer address %p\n", ptr);
-  printf("address of var: %p\n", &b);  
+  printf("address of a: %p\n", ptr);
+  *ptr = 10;
+  printf("data at the ptr %d \n", *ptr);
+  ptr = &b;
+  printf("data at the ptr %d \n", *ptr);
+  printf("address of a: %p\n", ptr);
+  printf("address of pointer: %p\n", &ptr);
   return 0;
 }
