@@ -7,6 +7,15 @@ struct Node
   struct Node *next;
 };
 
+void print_list(struct Node *n)
+{
+  while (n != NULL)
+  {
+    printf("Data %d\n", n->data);
+    n = n->next;
+  }
+}
+
 int main()
 {
     struct Node *head = (struct Node *)malloc(sizeof(struct Node));
@@ -19,4 +28,5 @@ int main()
     second->next = third;
     third->data = 30;
     third->next = NULL;
+    print_list(head);
 }
