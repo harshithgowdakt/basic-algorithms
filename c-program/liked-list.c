@@ -100,6 +100,19 @@ void delete_at_end(struct Node *head)
   free(temp_node);
 }
 
+int reverse_linked_list(struct Node **head)
+{
+  struct Node *current_node = *head, *previous_node = NULL, *next_node = NULL;
+  while (current_node != NULL)
+  {
+    next_node = current_node->next;
+    current_node->next = previous_node;
+    previous_node = current_node;
+    current_node = next_node;
+  }
+  *head = previous_node;
+}
+
 int main()
 {
   struct Node *head = (struct Node *)malloc(sizeof(struct Node));
@@ -109,8 +122,12 @@ int main()
   insert_at_beginning(&head, 10);
   insert_at_end(head, 40);
   insert_after_position(head, 1, 30);
+  reverse_linked_list(&head);
+  printf("List after reverse\n");
+  print_list(head);
   delete_at_front(&head);
   delete_at_position(&head, 2);
   delete_at_end(head);
+  printf("List after deletion\n");
   print_list(head);
 }
