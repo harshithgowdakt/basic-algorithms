@@ -37,7 +37,7 @@ void insert_at_end(struct Node *head, int data)
   temp_node->next = new_node;
 }
 
-void insert_at_position(struct Node *head, int position, int data)
+void insert_after_position(struct Node *head, int position, int data)
 {
   struct Node *new_node = (struct Node *)malloc(sizeof(struct Node));
   new_node->data = data;
@@ -54,20 +54,25 @@ void insert_at_position(struct Node *head, int position, int data)
   temp_node->next = new_node;
 }
 
+int delete_at_front(struct Node **head)
+{
+  if (*head != NULL)
+  {
+    struct Node *temp_node = *head;
+    *head = temp_node->next;
+    free(temp_node);
+  }
+}
+
 int main()
 {
-    struct Node *head = (struct Node *)malloc(sizeof(struct Node));
-    struct Node *second = (struct Node *)malloc(sizeof(struct Node));
-    struct Node *third = (struct Node *)malloc(sizeof(struct Node));
+  struct Node *head = (struct Node *)malloc(sizeof(struct Node));
 
-    head->data = 10;
-    head->next = second;
-    second->data = 20;
-    second->next = third;
-    third->data = 30;
-    third->next = NULL;
-    insert_at_beginning(&head, 40);
-    insert_at_end(head, 50);
-    insert_after_position(head, 1, 60);
-    print_list(head);
+  head->data = 10;
+  head->next = NULL;
+  insert_at_beginning(&head, 20);
+  insert_at_end(head, 30);
+  insert_after_position(head, 1, 40);
+  delete_at_front(&head);
+  print_list(head);
 }
