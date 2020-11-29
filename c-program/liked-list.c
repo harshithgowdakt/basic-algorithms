@@ -7,12 +7,12 @@ struct Node
   struct Node *next;
 };
 
-void print_list(struct Node *n)
+void print_list(struct Node *head)
 {
-  while (n != NULL)
+  while (head != NULL)
   {
-    printf("Data %d\n", n->data);
-    n = n->next;
+    printf("Data %d\n", head->data);
+    head = head->next;
   }
 }
 
@@ -64,15 +64,53 @@ int delete_at_front(struct Node **head)
   }
 }
 
+void delete_at_position(struct Node **head, int position)
+{
+  struct Node *temp_node = *head, *previous_node;
+
+  for (int i = 1; i <= position; i++)
+  {
+    if (temp_node->next != NULL)
+    {
+      previous_node = temp_node;
+      temp_node = temp_node->next;
+    }
+  }
+  if (temp_node == *head)
+  {
+    *head = temp_node->next;
+    free(temp_node);
+  }
+  else
+  {
+    previous_node->next = temp_node->next;
+    free(temp_node);
+  }
+}
+
+void delete_at_end(struct Node *head)
+{
+  struct Node *temp_node = head, *previous_node;
+  while (temp_node->next != NULL)
+  {
+    previous_node = temp_node;
+    temp_node = temp_node->next;
+  }
+  previous_node->next = NULL;
+  free(temp_node);
+}
+
 int main()
 {
   struct Node *head = (struct Node *)malloc(sizeof(struct Node));
 
-  head->data = 10;
+  head->data = 20;
   head->next = NULL;
-  insert_at_beginning(&head, 20);
-  insert_at_end(head, 30);
-  insert_after_position(head, 1, 40);
+  insert_at_beginning(&head, 10);
+  insert_at_end(head, 40);
+  insert_after_position(head, 1, 30);
   delete_at_front(&head);
+  delete_at_position(&head, 2);
+  delete_at_end(head);
   print_list(head);
 }
