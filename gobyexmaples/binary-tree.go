@@ -36,16 +36,6 @@ func (t *Tree) insert(data int) {
 	}
 }
 
-func printPreOrder(n *Node) {
-	if n == nil {
-		return
-	} else {
-		fmt.Println(n.key)
-		printPreOrder(n.left)
-		printPreOrder(n.right)
-	}
-}
-
 func printInOrder(n *Node) {
 	if n == nil {
 		return
@@ -63,6 +53,16 @@ func printPostOrder(n *Node) {
 		printPostOrder(n.left)
 		printPostOrder(n.right)
 		fmt.Println(n.key)
+	}
+}
+
+func printPreOrder(n *Node) {
+	if n == nil {
+		return
+	} else {
+		fmt.Println(n.key)
+		printPreOrder(n.left)
+		printPreOrder(n.right)
 	}
 }
 
