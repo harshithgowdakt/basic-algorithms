@@ -1,0 +1,19 @@
+{
+  "name": "basic-algorithms",
+  "version": "1.0.0",
+  "description": "This repo contains algorithms",
+  "main": "maxProfit.js",
+  "scripts": {
+    "test": "node maxProfit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harshithgowdakt/basic-algorithms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Harshithgowdakt/basic-algorithms/issues"
+  },
+  "homepage": "https://github.com/Harshithgowdakt/basic-algorithms#readme"
+}
