@@ -4,42 +4,33 @@ function Node(data) {
     this.data = data;
 }
 
-function insert(tree, data) {
-    if (tree === null) {
-        tree = new Node(data);
-        return tree;
-    }
-    if (data < tree.data) {
-        tree.left = insert(tree.left, data);
-    } else {
-        tree.right = insert(tree.right, data);
-    }
-    return tree;
-}
 
-
-function isValidBST(tree) {
-    if (tree === null) {
+function isValidBST(root, startRange, endRange) {
+    if (root === null)
         return true;
-    }
-    if (tree.left !== null && tree.left.data > tree.data) {
+
+    if (root.data < startRange || root.data > endRange)
         return false;
-    }
-    if (tree.right !== null && tree.right.data < tree.data) {
-        return false;
-    }
-    if (!isValidBST(tree.left) || !isValidBST(tree.right)) {
-        return false
-    }
-    return true;
+
+    if (isValidBST(root.left, startRange, root.data) && isValidBST(root.right, root.data, endRange))
+        return true;
+
+    return false;
 }
 
-function main(input) {
-    let Tree = null;
-    for (let i = 0; i < input.length; i++) {
-        Tree = insert(Tree, input[i]);
-    }
-    console.log(isValidBST(Tree));
+function main() {
+    let root = new Node(8);
+    root.left = new Node(5);
+    root.left.right = new Node(6);
+    root.left.left = new Node(4);
+    root.left.left.left = new Node(3);
+    root.left.right.right = new Node(7);
+    root.right = new Node(20);
+    root.right.left = new Node(18);
+    root.right.right = new Node(22);
+    root.right.left.left = new Node(15);
+    root.right.left.right = new Node(19);
+    console.log(isValidBST(root, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER));
 }
 
-main([2, 1, 3])
+main()
