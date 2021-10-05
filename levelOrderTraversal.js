@@ -23,6 +23,10 @@ function main() {
     root.left.right = new Node(6);
     root.right.left = new Node(7);
     root.right.right = new Node(8);
+    root.left.left.left = new Node(19);
+    root.left.left.right = new Node(30);
+    root.left.right.left = new Node(19);
+    root.left.right.right = new Node(40);
     let result = [];
     levelOrder(root, 0, result);
     for (let i = 0; i < result.length; i++) {
