@@ -1,20 +1,17 @@
-
 function Node(data) {
     this.data = data;
     this.left = null;
     this.right = null;
 }
 
-function max(root) {
-    if (root.right === null)
+function min(root) {
+    if (root && root.left === null)
         return root.data;
     else if (!root)
-        return root;
+        return null;
 
-    return max(root.right);
+    return min(root.left);
 }
-
-
 
 
 function main() {
@@ -29,7 +26,7 @@ function main() {
     root.right.right = new Node(22);
     root.right.left.left = new Node(15);
     root.right.left.right = new Node(19);
-    console.log(max(root));
+    console.log(min(root));
 }
 
 main()
