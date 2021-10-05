@@ -14,9 +14,6 @@ function max(root) {
     return max(root.right);
 }
 
-
-
-
 function main() {
     let root = new Node(8);
     root.left = new Node(5);
