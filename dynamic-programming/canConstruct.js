@@ -4,7 +4,7 @@ function canConstruct(targetString, wordBank, memo = {}) {
 
     for (let str of wordBank) {
         if (targetString.indexOf(str) === 0) {
-            let subString = targetString.slice(str.length, targetString.length);
+            let subString = targetString.slice(str.length);
             if (canConstruct(subString, wordBank, memo) === true) {
                 memo[targetString] = true;
                 return true;
