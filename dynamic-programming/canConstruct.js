@@ -1,3 +1,6 @@
+// check is it possible to construct target string using word bank
+// words can be reused
+
 function canConstruct(targetString, wordBank, memo = {}) {
     if (targetString in memo) return targetString[memo];
     if (targetString.length === 0) return true;
