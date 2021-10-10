@@ -89,6 +89,20 @@ List.prototype.deleteAtBegining = function () {
     }
 }
 
+List.prototype.search = function (key) {
+    if (this.head !== null) {
+        let temp = this.head;
+        while (temp != null) {
+            if (temp.key === key) {
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
+    return false;
+}
+
 function main() {
     //insert at the begining
     console.log("List 1 : insert at the beging example");
@@ -179,6 +193,18 @@ function main() {
     list5.print();
     list5.deleteAtEnd();
     list5.print();
+
+    console.log("List 6 : search an element example");
+    let list6 = new List();
+    list6.insertAtEnd(1);
+    list6.insertAtEnd(2);
+    list6.insertAtEnd(3);
+    list6.insertAtEnd(4);
+    list6.insertAtEnd(5);
+    list6.insertAtEnd(6);
+    list6.insertAtEnd(7);
+    list6.insertAtEnd(8);
+    console.log(list6.search(8));
 }
 
 main();
