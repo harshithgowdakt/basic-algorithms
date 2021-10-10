@@ -49,12 +49,11 @@ List.prototype.insertAtPostion = function (key, position) {
         }
         newNode.next = temp.next;
         temp.next = newNode;
-        this.length++;
     } else {
         newNode.next = this.head;
         this.head = newNode;
-        this.length++;
     }
+    this.length++;
 }
 
 List.prototype.print = function () {
