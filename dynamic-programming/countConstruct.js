@@ -13,6 +13,7 @@ function countConstruct(targetString, wordBank, memo = {}) {
             count += result;
         }
     }
+    memo[targetString] = count;
     return count;
 }
 console.log(countConstruct('abcd', ['a', 'b', 'c', 'd', 'abcd', 'ab', 'cd', 'abc', 'bcd']));
