@@ -10,7 +10,7 @@ function canSum(targetSum, numbers, memo = {}) {
     for (let num of numbers) {
         let reminder = targetSum - num;
         if (canSum(reminder, numbers, memo)) {
-            memo[reminder] = true;
+            memo[targetSum] = true;
             return true;
         }
     }

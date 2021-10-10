@@ -4,7 +4,7 @@
   "description": "This repo contains algorithms",
   "main": "maxProfit.js",
   "scripts": {
-    "test": "node linkedList.js"
+    "test": "node dynamic-programming/howSum.js"
   },
   "repository": {
     "type": "git",
