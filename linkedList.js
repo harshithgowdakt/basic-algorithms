@@ -89,7 +89,7 @@ List.prototype.deleteAtBegining = function () {
     }
 }
 
-List.prototype.search = function (key) {
+List.prototype.find = function (key) {
     if (this.head !== null) {
         let temp = this.head;
         while (temp != null) {
@@ -194,7 +194,7 @@ function main() {
     list5.deleteAtEnd();
     list5.print();
 
-    console.log("List 6 : search an element example");
+    console.log("List 6 : find an element example");
     let list6 = new List();
     list6.insertAtEnd(1);
     list6.insertAtEnd(2);
@@ -204,7 +204,7 @@ function main() {
     list6.insertAtEnd(6);
     list6.insertAtEnd(7);
     list6.insertAtEnd(8);
-    console.log(list6.search(8));
+    console.log(list6.find(8));
 }
 
 main();
