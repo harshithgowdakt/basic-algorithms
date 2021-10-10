@@ -2,7 +2,7 @@
 // words can be reused
 
 function countConstruct(targetString, wordBank, memo = {}) {
-    if (targetString in memo) return targetString[memo];
+    if (targetString in memo) return memo[targetString];
     if (targetString.length === 0) return 1;
 
     let count = 0;
@@ -16,7 +16,9 @@ function countConstruct(targetString, wordBank, memo = {}) {
     memo[targetString] = count;
     return count;
 }
+
 console.log(countConstruct('abcd', ['a', 'b', 'c', 'd', 'abcd', 'ab', 'cd', 'abc', 'bcd']));
 console.log(countConstruct('abcdef', ['ab', 'abctrue', 'cd', 'def', 'abcd']));
 console.log(countConstruct('abcdedewq', ['awd', 'qwdqw', 'qwdw', 'asd', 'add']));
+console.log(countConstruct('eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef', ['e']));
 
