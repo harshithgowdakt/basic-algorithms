@@ -70,15 +70,17 @@ List.prototype.print = function () {
 
 List.prototype.deleteAtEnd = function () {
     if (this.head !== null) {
-        let temp = this.head;
-        while (temp.next.next != null) {
-            temp = temp.next;
+        if (this.head.next != null) {
+            let temp = this.head;
+            while (temp.next != null && temp.next.next != null) {
+                temp = temp.next;
+            }
+            temp.next = null;
+        } else {
+            this.head = null;
         }
-        temp.next = null;
-    } else {
-        this.head = null;
+        this.length--;
     }
-    this.length--;
 }
 
 List.prototype.deleteAtBegining = function () {
@@ -90,44 +92,94 @@ List.prototype.deleteAtBegining = function () {
 
 function main() {
     //insert at the begining
-    let list = new List();
-    list.insertAtBegining(1);
-    list.insertAtBegining(2);
-    list.insertAtBegining(3);
-    list.insertAtBegining(4);
-    list.insertAtBegining(5);
-    console.log("First list");
-    list.print();
-    console.log(`length ${list.length}`);
+    console.log("List 1 : insert at the beging example");
+    let list1 = new List();
+    list1.insertAtBegining(1);
+    list1.insertAtBegining(2);
+    list1.insertAtBegining(3);
+    list1.insertAtBegining(1);
+    list1.insertAtBegining(4);
+    list1.insertAtBegining(5);
+    list1.print();
 
     //insert at end
+    console.log("List 2 : insert at the end example");
     let list2 = new List();
     list2.insertAtEnd(1);
     list2.insertAtEnd(2);
     list2.insertAtEnd(3);
     list2.insertAtEnd(4);
     list2.insertAtEnd(5);
-    console.log("second list");
-    console.log(`length ${list2.length}`);
+    list2.print();
 
     //insert at position
-    list2.insertAtPostion(10, 5);
+    console.log("List2 : insert at specific position example");
+    list2.insertAtPostion(10, 3);
     list2.print();
 
     //insert at position
     let list3 = new List();
+    console.log("List3 : insert at specific position example");
     list3.insertAtPostion(1, 0);
     list3.print();
 
-    //delete at the end;
-    list.deleteAtEnd();
-    console.log("First list");
-    list.print();
+    //delete at the begining
+    console.log("List 4 : delete at the begining example");
+    let list4 = new List();
+    list4.insertAtEnd(1);
+    list4.insertAtEnd(2);
+    list4.insertAtEnd(3);
+    list4.insertAtEnd(4);
+    list4.insertAtEnd(5);
+    list4.insertAtEnd(6);
+    list4.insertAtEnd(7);
+    list4.insertAtEnd(8);
+    list4.print();
+    list4.deleteAtBegining();
+    list4.print();
+    list4.deleteAtBegining();
+    list4.print();
+    list4.deleteAtBegining();
+    list4.print();
+    list4.deleteAtBegining();
+    list4.print();
+    list4.deleteAtBegining();
+    list4.print();
+    list4.deleteAtBegining();
+    list4.print();
+    list4.deleteAtBegining();
+    list4.print();
+    list4.deleteAtBegining();
+    list4.print();
 
     //delete at the begining
-    let list4 = new List();
-    list4.insertAtBegining(1);
-    list4.deleteAtBegining();
+    console.log("List 5 : delete at the end example");
+    let list5 = new List();
+    list5.insertAtEnd(1);
+    list5.insertAtEnd(2);
+    list5.insertAtEnd(3);
+    list5.insertAtEnd(4);
+    list5.insertAtEnd(5);
+    list5.insertAtEnd(6);
+    list5.insertAtEnd(7);
+    list5.insertAtEnd(8);
+    list5.print();
+    list5.deleteAtEnd();
+    list5.print();
+    list5.deleteAtEnd();
+    list5.print();
+    list5.deleteAtEnd();
+    list5.print();
+    list5.deleteAtEnd();
+    list5.print();
+    list5.deleteAtEnd();
+    list5.print();
+    list5.deleteAtEnd();
+    list5.print();
+    list5.deleteAtEnd();
+    list5.print();
+    list5.deleteAtEnd();
+    list5.print();
 }
 
 main();
