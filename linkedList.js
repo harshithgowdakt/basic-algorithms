@@ -103,6 +103,18 @@ List.prototype.find = function (key) {
     return false;
 }
 
+List.prototype.getMiddle = function () {
+    if (this.head != null) {
+        let middle = Math.round(this.length / 2), temp = this.head, counter = 1;
+        while (counter < middle) {
+            counter++;
+            temp = temp.next;
+        }
+        return temp.key;
+    }
+    return null;
+}
+
 function main() {
     //insert at the begining
     console.log("List 1 : insert at the beging example");
@@ -205,6 +217,9 @@ function main() {
     list6.insertAtEnd(7);
     list6.insertAtEnd(8);
     console.log(list6.find(8));
+
+    console.log("List 6 : get middle element exmaple");
+    console.log(list6.getMiddle());
 }
 
 main();
