@@ -4,7 +4,7 @@
   "description": "This repo contains algorithms",
   "main": "maxProfit.js",
   "scripts": {
-    "test": "node dynamic-programming/canConstruct.js"
+    "test": "node dynamic-programming/countConstruct.js"
   },
   "repository": {
     "type": "git",
