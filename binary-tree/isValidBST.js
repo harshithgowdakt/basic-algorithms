@@ -30,7 +30,7 @@ function main() {
     root.right.right = new Node(22);
     root.right.left.left = new Node(15);
     root.right.left.right = new Node(19);
-    console.log(isValidBST(root, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER));
+    console.log("Is binary tree valid BST", isValidBST(root, Number.MIN_SAFE_INTEGER, Number.MAX_SAFE_INTEGER));
 }
 
 main()
