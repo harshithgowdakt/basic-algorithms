@@ -1,5 +1,8 @@
 
 function Node(data) {
+    if (!data) {
+        throw new Error("data can't be null");
+    }
     this.data = data;
     this.left = null;
     this.right = null;
