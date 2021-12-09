@@ -1,0 +1,18 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+    "files.autoSave": "afterDelay",
+    "window.openFoldersInNewWindow": "on",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "workbench.editor.untitled.hint": "hidden",
+    "editor.formatOnSaveMode": "modifications",
+    "go.toolsManagement.autoUpdate": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.formatOnSave": true,
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "workbench.editor.enablePreview": false,
+    "explorer.confirmDragAndDrop": false,
+    "search.useIgnoreFiles": false,
+    "explorer.confirmDelete": false
+}
