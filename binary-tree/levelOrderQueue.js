@@ -18,36 +18,28 @@ function Node(data) {
 
  */
 
-function levelOrderApproach2(root) {
-    let levelOrder = [];
+
+function levelOrder(root) {
+    let levelOrder = []
     if (root === null) {
         return levelOrder;
     }
+
     let queue = [];
     queue.push(root);
-    while (queue.length !== 0) {
-        let length = queue.length;
-        let level = [];
+
+    while (queue.length > 0) {
+        let length = queue.length,
+            level = [];
         for (let i = 0; i < length; i++) {
-            let front = queue.shift();
-            if (front.left) queue.push(front.left);
-            if (front.right) queue.push(front.right);
-            level.push(front.data);
+            let node = queue.shift()
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+            level.push(node.data)
         }
         levelOrder.push(level);
     }
     return levelOrder;
-}
-
-
-function levelOrder(root, level, result) {
-    if (root == null) return;
-    if (!result[level]) {
-        result[level] = [];
-    }
-    result[level].push(root.data);
-    levelOrder(root.left, level + 1, result);
-    levelOrder(root.right, level + 1, result);
 }
 
 function main() {
@@ -63,15 +55,7 @@ function main() {
     root.left.right.left = new Node(21);
     root.left.right.right = new Node(40);
 
-    let result = [];
-    levelOrder(root, 0, result);
-    for (let i = 0; i < result.length; i++) {
-        if ((i % 2) !== 0) {
-            result[i] = result[i].reverse()
-        }
-    }
-    console.log(result);
-    console.log(levelOrderApproach2(root));
+    console.log(levelOrder(root));
 }
 
 main();
