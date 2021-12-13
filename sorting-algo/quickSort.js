@@ -1,7 +1,7 @@
 function partition(arr, start, end) {
     let pivot = arr[end];
-    let pivotIndex = start - 1;
-    for (let i = start; i <= end; i++) {
+    let pivotIndex = start;
+    for (let i = start; i < end; i++) {
         if (arr[i] < pivot) {
             let temp = arr[i];
             arr[i] = arr[pivotIndex];
@@ -19,12 +19,12 @@ function quickSort(arr, start, end) {
     if (start < end) {
         let partitionIndex = partition(arr, start, end);
         quickSort(arr, start, partitionIndex - 1);
-        quickSort(arr, partitionIndex, end);
+        quickSort(arr, partitionIndex + 1, end);
     }
 }
 
 
 let arr = [2, 4, 5, 60, 70, 7, 32, 36, 1, 8, 9];
-quickSort(arr)
+quickSort(arr, 0, arr.length - 1)
 
 console.log(arr);

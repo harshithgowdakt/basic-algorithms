@@ -4,7 +4,7 @@
   "description": "This repo contains algorithms",
   "main": "maxProfit.js",
   "scripts": {
-    "debug": "node binary-tree/isTreeBalanced.js"
+    "debug": "node sorting-algo/quickSort.js"
   },
   "repository": {
     "type": "git",
