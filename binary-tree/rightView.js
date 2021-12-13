@@ -6,6 +6,7 @@ function Node(data) {
     this.left = null;
     this.right = null;
 }
+
 /**
                         3
                 
@@ -13,9 +14,9 @@ function Node(data) {
 
     1               6          7           8
     
-19      30      21      40                     75
+19      30      21      40                   75
 
-                                                    83
+                                                83
 
  */
 
@@ -29,8 +30,8 @@ function leftViewOfTree(root, level, leftView = []) {
         leftView.push(root.data);
         maxLevel = level;
     }
-    leftViewOfTree(root.left, level + 1, leftView);
     leftViewOfTree(root.right, level + 1, leftView);
+    leftViewOfTree(root.left, level + 1, leftView);
     return null;
 }
 
