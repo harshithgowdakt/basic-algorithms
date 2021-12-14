@@ -22,16 +22,16 @@ function Node(data) {
 
 let maxLevel = Number.MIN_SAFE_INTEGER;
 
-function leftViewOfTree(root, level, leftView = []) {
+function rightViewOfTree(root, level, rightView = []) {
     if (root === null) {
         return;
     }
     if (level > maxLevel) {
-        leftView.push(root.data);
+        rightView.push(root.data);
         maxLevel = level;
     }
-    leftViewOfTree(root.right, level + 1, leftView);
-    leftViewOfTree(root.left, level + 1, leftView);
+    rightViewOfTree(root.right, level + 1, rightView);
+    rightViewOfTree(root.left, level + 1, rightView);
     return null;
 }
 
@@ -49,9 +49,9 @@ function main() {
     root.left.left.right = new Node(30);
     root.left.right.left = new Node(21);
     root.left.right.right = new Node(40);
-    let leftView = [];
-    leftViewOfTree(root, 1, leftView);
-    console.log(leftView);
+    let rightView = [];
+    rightViewOfTree(root, 1, rightView);
+    console.log(rightView);
 }
 
 main()
