@@ -1,4 +1,4 @@
-function Node(data) {
+function Node(data = 0) {
     if (!data) {
         throw new Error("data can't be null");
     }
@@ -19,27 +19,23 @@ function Node(data) {
  */
 
 
-function levelOrder(root) {
-    let levelOrder = [];
+function preorderIterative(root) {
+    let preorder = [];
     if (root === null) {
-        return levelOrder;
+        return null;
     }
 
-    let queue = [];
-    queue.push(root);
+    let stack = [];
+    stack.push(root);
+    while (stack.length > 0) {
+        let node = stack.pop();
 
-    while (queue.length > 0) {
-        let length = queue.length,
-            level = [];
-        for (let i = 0; i < length; i++) {
-            let node = queue.shift();
-            if (node.left) queue.push(node.left);
-            if (node.right) queue.push(node.right);
-            level.push(node.data);
-        }
-        levelOrder.push(level);
+        preorder.push(node.data);
+
+        if (node.right) stack.push(node.right);
+        if (node.left) stack.push(node.left);
     }
-    return levelOrder;
+    return preorder;
 }
 
 function main() {
@@ -55,7 +51,7 @@ function main() {
     root.left.right.left = new Node(21);
     root.left.right.right = new Node(40);
 
-    console.log(levelOrder(root));
+    console.log(preorderIterative(root));
 }
 
 main();

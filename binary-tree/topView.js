@@ -15,7 +15,7 @@ function Node(data = 0) {
     1               6          7           8
     
 19      30      21      40
-Object.values(topView).reverse()
+
  */
 
 
