@@ -1,2 +1,2 @@
 # basic-algorithms
-This repo contains algorithms, test conflict
+This repo contains algorithms, testing readme2
